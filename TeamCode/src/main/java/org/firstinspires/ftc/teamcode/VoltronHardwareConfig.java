@@ -21,30 +21,31 @@ public class VoltronHardwareConfig
 		driveMotorL.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 		driveMotorR.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 	}
-	   /***
-   	 *
+   	/***
+ 	*
      	* waitForTick implements a periodic delay. However, this acts like a metronome with 	a regular
-    	 * periodic tick.  This is used to compensate for varying processing times for each 	cycle.
-    	 * The function looks at the elapsed cycle time, and sleeps for the remaining time 	interval.
+ 	* periodic tick.  This is used to compensate for varying processing times for each 	cycle.
+ 	* The function looks at the elapsed cycle time, and sleeps for the remaining time 	interval.
      	*
      	* @param periodMs  Length of wait cycle in mSec.
    	*/
-   	public void waitForTick(long periodMs) {
-        		long  remaining = periodMs - (long)period.milliseconds();
-       		 // sleep for the remaining portion of the regular cycle period.
-        		if (remaining > 0)
-        		{
-            			try
-            			{
-                			Thread.sleep(remaining);
-            			}
-            			catch (InterruptedException e)
-            			{
-                			Thread.currentThread().interrupt();
-            			}
+   	public void waitForTick(long periodMs) 
+	{
+		long  remaining = periodMs - (long)period.milliseconds();
+	 	// sleep for the remaining portion of the regular cycle period.
+		if (remaining > 0)
+		{
+			try
+			{
+				Thread.sleep(remaining);
+			}
+			catch (InterruptedException e)
+			{
+				Thread.currentThread().interrupt();
+			}
        	 	}
 
-        		// Reset the cycle clock for the next pass.
-        		period.reset();
+		// Reset the cycle clock for the next pass.
+		period.reset();
     	}
 }
