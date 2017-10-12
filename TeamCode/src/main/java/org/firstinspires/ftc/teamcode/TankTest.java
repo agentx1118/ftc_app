@@ -18,6 +18,12 @@ public class TankTest extends LinearOpMode
             double rPower = gamepad1.right_stick_y;
             robot.driveMotorL.setPower(lPower);
             robot.driveMotorR.setPower(rPower);
+
+            while(gamepad1.x)
+            {
+                robot.driveMotorL.setPower(0);
+                robot.driveMotorR.setPower(0);
+            }
       
             //adds telemetry data to phone display
             telemetry.addData("Left_Drive", "%2f", lPower);
