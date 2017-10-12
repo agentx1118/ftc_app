@@ -1,3 +1,5 @@
+package org.firstinspires.ftc.teamcode;
+
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -12,8 +14,8 @@ public class VoltronHardwareConfig
 	public void init(HardwareMap ahwMap)
 	{
 		hwMap = ahwMap;
-		driveMotorL = hardwareMap.dcMotor.get("nullL");
-		driveMotorR = hardwareMap.dcMotor.get("nullR");
+		driveMotorL = hwMap.dcMotor.get("nullL");
+		driveMotorR = hwMap.dcMotor.get("nullR");
 		driveMotorL.setDirection(DcMotor.Direction.REVERSE);
 		driveMotorR.setDirection(DcMotor.Direction.FORWARD);
 		driveMotorL.setPower(0);
